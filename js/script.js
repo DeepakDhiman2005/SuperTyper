@@ -211,6 +211,9 @@ btn3.addEventListener('click', ()=>{
     else if(selectid.value == 'Cloud Type'){
         window.open('Game2.html');
     }
+    else if(selectid.value == 'Todolist'){
+        window.open('Todolist.html');
+    }
     else{
         alert("sorry: "+selectid.value+" It is not avarible!")
     }
