@@ -208,6 +208,9 @@ btn3.addEventListener('click', ()=>{
         intro.style.display = 'none';
         bodysel.style.overflow = 'scroll';
     }
+    else if(selectid.value == 'Cloud Type'){
+        window.open('Game2.html');
+    }
     else{
         alert("sorry: "+selectid.value+" It is not avarible!")
     }

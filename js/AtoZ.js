@@ -36,6 +36,8 @@ function inputstart() {
     if(e.key == 'Backspace'){
       if (inpid.value.length == 0) {
         inpid.value ="";
+        // characters[i].style.display = 'flex';
+        i=0; sec=60;
       }
       else if(inpid.value == ""){
         inpid.value="";
@@ -48,18 +50,24 @@ function inputstart() {
       }
     }
     else if(e.key === "Enter"){
-      if(inpid.value == "abcdefgijklmnopqrestuvwxyz"){
-        alert("Game over! Your score "+"Time: "+(60-sec)+" Seconds And characters: "+inpid.value.length);
+      if(inpid.value.toUpperCase() == "abcdefgijklmnopqrestuvwxyz".toUpperCase()){
+        alert("Game over! Your score "+"Time: "+(60-sec)+" Seconds And characters: 26");
         clearInterval(timerstart);
-        i=0; sec=0;
+        sec=60; inpid.value="";
+        for(let n=0; n < characters.length; n++){
+          characters[n].style.display = 'flex';
+        }
       }else{
         alert("Game over! Your score "+"Time: "+(60-sec)+" Seconds And characters: "+inpid.value.length);
         clearInterval(timerstart);
-        i=0; sec=0;
+        sec=60; inpid.value="";
+        for(let n=0; n < characters.length; n++){
+          characters[n].style.display = 'flex';
+        }
       }
     }
     else{
-      if (e.key.toUpperCase() == characters[i].innerText) {
+      if (e.key.toUpperCase() == characters[i].innerText.toUpperCase()) {
         characters[i].style.display = 'none';
         i++;
       }else{
@@ -75,8 +83,7 @@ function timerfunc() {
       if (sec == 0) {
         clearInterval(timerstart);
         alert("Game over! Your score "+"Time: "+(60-sec)+" Seconds And characters: "+inpid.value.length);
-        sec=60;
-        i=0; sec=0;
+        sec=60; inpid.value="";
       }
       timer.innerText = `Timer:- ${sec} Seconds`;
       sec--;
